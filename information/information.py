@@ -22,10 +22,9 @@ class Information(Cog):
             title="Information",
             color=discord.Color.blue(),
             description="Sample Text",
-            embed.add_field(name="2nd field",value="sample 2")
         )
         embed.set_thumbnail(url=ctx.guild.icon_url)
-        
+        embed.add_field(name="2nd field",value="sample 2")
         await ctx.send(embed=embed)
 
 
