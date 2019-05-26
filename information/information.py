@@ -21,8 +21,7 @@ class Information(Cog):
         embed = discord.Embed(
             title="Information",
             color=discord.Color.blue(),
-            description="------------------------------------------------------------------------------
------------------------------------------------------------------------Welcome to FlyAllemange!
+            description="Welcome to FlyAllemange!
 
 Links that are not posted in this channel are not approved or official. Please also follow following rules:
 
