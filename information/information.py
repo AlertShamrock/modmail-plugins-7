@@ -23,7 +23,7 @@ class Information(Cog):
             color=discord.Color.blue(),
             description="Sample Text",
         )
-        embed.set_thumbnail(url=ctx.guild.icon)
+        embed.set_thumbnail(url=ctx.guild.icon_url)
         
         await ctx.send(embed=embed)
 
