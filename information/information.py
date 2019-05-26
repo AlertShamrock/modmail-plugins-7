@@ -21,10 +21,21 @@ class Information(Cog):
         embed = discord.Embed(
             title="Information",
             color=discord.Color.blue(),
-            description="Sample Text",
+            description="------------------------------------------------------------------------------
+-----------------------------------------------------------------------Welcome to FlyAllemange!
+
+Links that are not posted in this channel are not approved or official. Please also follow following rules:
+
+| Do not be rude to anyone. Respect everyone the way you want to be respected.
+
+| Do not spamm or swear in the entire server.
+
+| Do not ping any staff or High Ranks unless it is necesarry.
+
+| To be able to talk please join the roblox group.",
         )
+        embed.add_field(name="Links",value="Test")
         embed.set_thumbnail(url=ctx.guild.icon_url)
-        embed.add_field(name="2nd field",value="sample 2")
         await ctx.send(embed=embed)
 
 
