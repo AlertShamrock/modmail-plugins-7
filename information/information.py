@@ -26,3 +26,7 @@ class Information(Cog):
         embed.set_thumbnail(url=ctx.guild.icon&)
         
         await ctx.send(embed=embed)
+
+
+def setup(bot):
+    bot.add_cog(Information(bot))
