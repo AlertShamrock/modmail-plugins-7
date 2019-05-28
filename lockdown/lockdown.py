@@ -15,12 +15,12 @@ class Lockdown:
     async def lockdown(self, ctx):
        """Lock message sending in the channel. Staff only."""
        try:
-            overwrites_everyone = ctx.message.channel.overwrites_for(self.bot.everyone_role)
+            overwrites_everyone = ctx.message.channel.overwrites_for(ctx.guild.default_role)
             if overwrites_everyone.send_messages == False:
                 await self.bot.say("🔒 Channel is already locked down. Use `.unlock` to unlock.")
                 return
             overwrites_everyone.send_messages = False
-            await self.bot.edit_channel_permissions(ctx.message.channel, self.bot.everyone_role, overwrites_everyone)
+            await self.bot.edit_channel_permissions(ctx.message.channel, ctx.guild.default_role, overwrites_everyone)
             await self.bot.say("🔒 Channel locked down. Only staff members may speak. Do not bring the topic to other channels or risk disciplinary actions.")
             msg = "🔒 **Lockdown**: {0} by {1} | {2}#{3}".format(ctx.message.channel.mention, ctx.message.author.mention, ctx.message.author.name, ctx.message.author.discriminator)
             await self.bot.send_message(self.bot.modlogs_channel, msg)
@@ -32,12 +32,12 @@ class Lockdown:
     async def softlock(self, ctx):
        """Lock message sending in the channel, without the "disciplinary action" note. Staff only."""
        try:
-            overwrites_everyone = ctx.message.channel.overwrites_for(self.bot.everyone_role)
+            overwrites_everyone = ctx.message.channel.overwrites_for(ctx.guild.default_role)
             if overwrites_everyone.send_messages == False:
                 await self.bot.say("🔒 Channel is already locked down. Use `.unlock` to unlock.")
                 return
             overwrites_everyone.send_messages = False
-            await self.bot.edit_channel_permissions(ctx.message.channel, self.bot.everyone_role, overwrites_everyone)
+            await self.bot.edit_channel_permissions(ctx.message.channel, ctx.guild.default_role, overwrites_everyone)
             await self.bot.say("🔒 Channel locked.")
             msg = "🔒 **Soft-lock**: {0} by {1} | {2}#{3}".format(ctx.message.channel.mention, ctx.message.author.mention, ctx.message.author.name, ctx.message.author.discriminator)
             await self.bot.send_message(self.bot.modlogs_channel, msg)
